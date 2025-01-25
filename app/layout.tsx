@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Sidebar } from "@/components/sidebar"
+import { Footer } from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,7 +23,10 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen">
             <Sidebar />
-            <main className="flex-1 p-8 lg:ml-64">{children}</main>
+            <div className="flex-1 flex flex-col">
+              <main className="flex-1 p-8">{children}</main>
+              <Footer />
+            </div>
           </div>
         </ThemeProvider>
       </body>
